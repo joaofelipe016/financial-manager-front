@@ -1,0 +1,28 @@
+button {
+    width: 100%;
+    padding: 1rem;
+    background: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+button:disabled {
+    background: #e0e0e0;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background: #5753ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}

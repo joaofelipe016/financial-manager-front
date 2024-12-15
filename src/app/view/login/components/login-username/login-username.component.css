@@ -1,0 +1,31 @@
+:host {
+    width: 100%;
+    display: block;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #444;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+input::placeholder {
+    color: #999;
+}
