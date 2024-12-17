@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ControlContainer, FormGroup, FormGroupDirective } from '@angular/forms';
+import {
+  ControlContainer,
+  FormGroup,
+  FormGroupDirective,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-login-password',
@@ -8,19 +12,16 @@ import { ControlContainer, FormGroup, FormGroupDirective } from '@angular/forms'
   viewProviders: [
     {
       provide: ControlContainer,
-      useExisting: FormGroupDirective
-    }
-  ]
+      useExisting: FormGroupDirective,
+    },
+  ],
 })
-export class LoginPasswordComponent implements OnInit{
-
+export class LoginPasswordComponent implements OnInit {
   formGroup: FormGroup | undefined;
 
   constructor(private controlContainer: ControlContainer) {}
 
   ngOnInit() {
     this.formGroup = this.controlContainer.control as FormGroup;
-    this.formGroup.get('scSenha')?.valueChanges.subscribe(console.log)
   }
-
 }

@@ -15,7 +15,6 @@ export class AuthService {
   async login(loginRequest: LoginRequest): Promise<LoginResponse> {
     try {
       const response = await axios.post(this.apiUrl + '/login', loginRequest);
-      console.log('>>>>>>>>>>>>>>>>>>>>> ', response.data.accessToken);
       this.localStorageService.setItem(
         'accessToken',
         response.data.accessToken

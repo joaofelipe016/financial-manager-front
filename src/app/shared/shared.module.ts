@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { FieldTextComponent } from '../components/field-text/field-text.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-const module = [
-  CommonModule,
-  ReactiveFormsModule
-]
+const module = [CommonModule, ReactiveFormsModule];
 
+const components = [FieldTextComponent];
 
 @NgModule({
-  declarations: [],
+  declarations: [...components],
   imports: [...module],
-  exports: [...module]
+  exports: [...module, ...components],
 })
-export class SharedModule { }
+export class SharedModule {}

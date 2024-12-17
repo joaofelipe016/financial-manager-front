@@ -4,6 +4,7 @@ import {
   FormGroup,
   FormGroupDirective,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/entity/login-request';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -23,7 +24,8 @@ export class ButtonLoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private controlContainer: ControlContainer
+    private controlContainer: ControlContainer,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -32,6 +34,13 @@ export class ButtonLoginComponent implements OnInit {
 
   login() {
     let loginRequest: LoginRequest = this.formGroup?.getRawValue();
-    this.authService.login(loginRequest);
+    this.authService
+      .login(loginRequest)
+      .then((data) => {
+        if (data != null) {
+          this.router.navigate(['/home']);
+        }
+      })
+      .catch((error) => console.error('Error', error));
   }
 }
