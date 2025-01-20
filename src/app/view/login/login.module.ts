@@ -7,18 +7,27 @@ import { LoginUsernameComponent } from './components/login-username/login-userna
 import { LoginPasswordComponent } from './components/login-password/login-password.component';
 import { ButtonLoginComponent } from './components/button-login/button-login.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CadastroComponent } from '../cadastro/cadastro.component';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
     LoginComponent,
     LoginUsernameComponent,
     LoginPasswordComponent,
-    ButtonLoginComponent
+    ButtonLoginComponent,
+    CadastroComponent
   ],
   imports: [
     CommonModule,
     LoginRoutingModule,
-    SharedModule
+    SharedModule,
+    FontAwesomeModule
   ]
 })
-export class LoginModule { }
+export class LoginModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas); // Adiciona todos os ícones sólidos
+  }
+ }
