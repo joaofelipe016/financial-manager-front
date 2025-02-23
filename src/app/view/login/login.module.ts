@@ -10,6 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CadastroComponent } from '../cadastro/cadastro.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FormGroupDirective } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     LoginRoutingModule,
     SharedModule,
     FontAwesomeModule
-  ]
+  ],
+  providers: [FormGroupDirective]
 })
 export class LoginModule {
   constructor(library: FaIconLibrary) {

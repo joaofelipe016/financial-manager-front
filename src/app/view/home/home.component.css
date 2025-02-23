@@ -1,8 +1,36 @@
-.navBar {
-  display: flex;
-  justify-content: space-between;
+.container{
+  height: 100vh;
 }
 
-li {
-  list-style: none;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  height: 67px;
+  background-color: #20B2AA;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+.list {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+  width: 100px;
+}
+
+.item:hover {
+  background-color: white;
+  color: #20B2AA;
 }

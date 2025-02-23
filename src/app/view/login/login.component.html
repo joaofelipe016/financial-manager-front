@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [formGroup]="formGroup">
   <div class="login content">
     <div class="login-first">
       <h2 class="title color-secondary">Login</h2>
@@ -12,16 +12,16 @@
         <div class="form-group">
           <div class="input-container">
             <fa-icon [icon]="faEnvelope" class="input-icon"></fa-icon>
-            <input type="email" class="form-control" id="email" placeholder="Email"/>
+            <input type="email" class="form-control" id="email" formControlName="scUsuario" placeholder="Email"/>
           </div>
         </div>
         <div class="form-group">
           <div class="input-container">
             <fa-icon [icon]="faLock" class="input-icon"></fa-icon>
-            <input type="password" class="form-control" id="password" placeholder="Password"/>
+            <input type="password" class="form-control" id="password" formControlName="scSenha" placeholder="Password"/>
           </div>
         </div>
-        <button type="submit" class="button button-secondary">Sign in</button>
+        <button type="submit" class="button button-secondary" (click)="onSubmit()">Sign in</button>
       </form>
     </div>
     <div class="login-second">
