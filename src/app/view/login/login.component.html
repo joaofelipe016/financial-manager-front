@@ -1,9 +1,42 @@
 <div class="container" [formGroup]="formGroup">
-  <div class="login content">
-    <div class="login-first">
-      <h2 class="title color-secondary">Login</h2>
+  <div class="login content" [ngClass]="{'right-panel-active': isRightPanelActive}">
+    <!-- Sign Up Form -->
+    <div class="form-container sign-up">
+      <form class="form" [formGroup]="signUpForm">
+        <h2 class="title color-secondary">Create Account</h2>
+        <div class="form-group">
+          <div class="input-container">
+            <fa-icon [icon]="faUser" class="input-icon"></fa-icon>
+            <input type="text" class="form-control" formControlName="nome" placeholder="Name"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-container">
+            <fa-icon [icon]="faIdCard" class="input-icon"></fa-icon>
+            <input type="text" class="form-control" formControlName="cpf" placeholder="CPF" mask="000.000.000-00"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-container">
+            <fa-icon [icon]="faUser" class="input-icon"></fa-icon>
+            <input type="text" class="form-control" formControlName="username" placeholder="Username"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-container">
+            <fa-icon [icon]="faLock" class="input-icon"></fa-icon>
+            <input type="password" class="form-control" formControlName="password" placeholder="Password"/>
+          </div>
+        </div>
+        <button type="submit" class="button button-primary">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Sign In Form -->
+    <div class="form-container sign-in">
       <form class="form">
-        <ul class="list">
+        <h2 class="title color-secondary">Login</h2>
+        <ul class="list" *ngIf="iconsLoaded">
           <li class="list-item"><fa-icon [icon]="faGoogle"></fa-icon></li>
           <li class="list-item"><fa-icon [icon]="faGithub"></fa-icon></li>
           <li class="list-item"><fa-icon [icon]="faLinkedin"></fa-icon></li>
@@ -12,26 +45,34 @@
         <div class="form-group">
           <div class="input-container">
             <fa-icon [icon]="faEnvelope" class="input-icon"></fa-icon>
-            <input type="email" class="form-control" id="email" formControlName="scUsuario" placeholder="Email"/>
+            <input type="email" class="form-control" formControlName="scUsuario" placeholder="Email"/>
           </div>
         </div>
         <div class="form-group">
           <div class="input-container">
             <fa-icon [icon]="faLock" class="input-icon"></fa-icon>
-            <input type="password" class="form-control" id="password" formControlName="scSenha" placeholder="Password"/>
+            <input type="password" class="form-control" formControlName="scSenha" placeholder="Password"/>
           </div>
         </div>
         <button type="submit" class="button button-secondary" (click)="onSubmit()">Sign in</button>
       </form>
     </div>
-    <div class="login-second">
-      <h2 class="title color-primary">Register</h2>
-      <p class="text color-primary">Don't have an account?</p>
-      <p class="text color-primary">Register now and get access to all the features!</p>
-      <button class="button button-primary" (click)="openModal()">sign up</button>
-      <ng-template #modalContainer>
-        <app-cadastro></app-cadastro>
-      </ng-template>
+
+    <!-- Overlay -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h2 class="title-primary">Welcome Back!</h2>
+          <p class="text-primary">Already have an account?</p>
+          <p class="text-primary">Sign in to keep connected with us</p>
+          <button class="button button-ghost" (click)="togglePanel()">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h2 class="title-primary">Hello, Friend!</h2>
+          <p class="text-primary">Register now and get access to all the features!</p>
+          <button class="button button-ghost" (click)="togglePanel()">Sign Up</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
