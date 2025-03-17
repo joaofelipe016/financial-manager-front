@@ -18,10 +18,12 @@ import {
   faIdCard,
   faLock,
 } from '@fortawesome/free-solid-svg-icons';
-import { AuthController } from 'src/app/controllers/auth.controller';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { UsuarioDTO } from 'src/app/entity/usuario-dto';
+import { Pessoa } from 'src/app/entity/pessoa';
+import { CadastroService } from 'src/app/services/cadastro.service';
 
 @Component({
   selector: 'app-login',
@@ -52,6 +54,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private modalService: ModalService,
     private authService: AuthService,
+    private cadastroService: CadastroService,
     private router: Router
   ) {
     this.formGroup = this.formBuilder.group({
@@ -60,15 +63,18 @@ export class LoginComponent implements OnInit {
     });
 
     this.signUpForm = this.formBuilder.group({
-      nome: ['', [Validators.required]],
-      cpf: ['', [Validators.required]],
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      nmPessoa: ['', [Validators.required]],
+      nrCpf: ['', [Validators.required]],
+      scUsuario: ['', [Validators.required]],
+      scSenha: ['', [Validators.required]],
     });
   }
   ngOnInit(): void {
     this.modalService.setViewContainerRef(this.modalContainer);
     this.initializeIcons();
+    this.signUpForm.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
   }
   private initializeIcons(): void {
     Promise.resolve().then(() => {
@@ -104,5 +110,28 @@ export class LoginComponent implements OnInit {
       .catch(() => {
         console.error('Erro ao fazer login');
       });
+  }
+
+  cadastrar(): void {
+    this.cadastroService
+     .cadastrar(this.buildUsuarioDTO())
+     .then((response) => {
+        console.log('Cadastro realizado com sucesso');
+        console.log(response);
+      })
+     .catch(() => {
+        console.error('Erro ao fazer login');
+      });
+  }
+
+  buildUsuarioDTO(): UsuarioDTO {
+    const pessoa = new Pessoa();
+    pessoa.setNmPessoa(this.signUpForm.get('nmPessoa')?.value);
+    pessoa.setCpf(this.signUpForm.get('nrCpf')?.value);
+    const usuarioDTO = new UsuarioDTO();
+    usuarioDTO.setPessoa(pessoa);
+    usuarioDTO.setScUsuario(this.signUpForm.get('scUsuario')?.value);
+    usuarioDTO.setScSenha(this.signUpForm.get('scSenha')?.value);
+    return usuarioDTO;
   }
 }

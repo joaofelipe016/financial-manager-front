@@ -1,0 +1,118 @@
+.container {
+  padding: 20px;
+  height: calc(100vh - 67px);
+  background-color: #dcdcdc;
+}
+
+.carteiras-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: #20B2AA;
+}
+
+.carteiras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.carteira-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.carteira-card:hover {
+  transform: translateY(-5px);
+}
+
+.carteira-card.principal {
+  border: 2px solid #20B2AA;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header fa-icon {
+  font-size: 24px;
+  color: #20B2AA;
+  margin-right: 10px;
+}
+
+.card-header h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.badge {
+  background-color: #20B2AA;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.saldo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.valor {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #20B2AA;
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.button {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  border: 1px solid #20B2AA;
+  border-radius: 15px;
+  color: #20B2AA;
+  padding: 12px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button:hover {
+  background-color: #20B2AA;
+  color: white;
+}
+
+.button fa-icon {
+  font-size: 16px;
+}

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="carteiras-header">
+    <h2 class="title color-secondary">Minhas Carteiras</h2>
+    <button class="button button-secondary">
+      <fa-icon [icon]="faPlus"></fa-icon> Nova Carteira
+    </button>
+  </div>
+
+  <div class="carteiras-grid">
+    <!-- Carteira Principal -->
+    <div class="carteira-card principal">
+      <div class="card-header">
+        <fa-icon [icon]="faWallet"></fa-icon>
+        <h3>Carteira Principal</h3>
+        <span class="badge">Principal</span>
+      </div>
+      <div class="card-body">
+        <div class="saldo">
+          <span class="label">Saldo Atual</span>
+          <span class="valor">R$ 5.000,00</span>
+        </div>
+        <div class="acoes">
+          <button class="button button-secondary">Adicionar Receita</button>
+          <button class="button button-secondary">
+            <fa-icon [icon]="faExchangeAlt"></fa-icon> Transferir
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outras Carteiras -->
+    <div class="carteira-card">
+      <div class="card-header">
+        <fa-icon [icon]="faWallet"></fa-icon>
+        <h3>Poupança</h3>
+      </div>
+      <div class="card-body">
+        <div class="saldo">
+          <span class="label">Saldo Atual</span>
+          <span class="valor">R$ 2.000,00</span>
+        </div>
+        <div class="acoes">
+          <button class="button button-secondary">
+            <fa-icon [icon]="faExchangeAlt"></fa-icon> Transferir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
